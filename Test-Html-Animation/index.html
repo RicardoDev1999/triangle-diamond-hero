@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <link href="./index.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="triangle-diamond-anim-box">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <h1 class="name">Ricardo Duarte</h1>
+        <h1 class="title">Full Stack Programmer</h1>
+        <h1 class="press">Press Space...</h1>
+    </div>
+
+
+    <script>
+
+        document.addEventListener('keydown', (event) => {
+            const keyWhich = event.which;
+            if(keyWhich === 32) doStuff();
+        });
+
+        var canDo = true;
+
+    function doStuff() {
+        if (canDo) {
+
+            var pressLbl = document.getElementsByClassName("press")[0];
+            pressLbl.classList.add("hide");
+                var triangle = document.getElementsByClassName("triangle-diamond-anim-box")[0];
+                if (triangle.classList.contains("closed")) {
+                    triangle.classList.remove("closed");
+                }
+                else {
+                    triangle.classList.add("closed");
+                }
+
+                canDo = false;
+
+                var interval = setInterval(function () {
+                    canDo = true;
+                    pressLbl.classList.remove("hide");
+                    clearInterval(interval);
+                }, 3200);
+
+            
+            }
+        }
+    </script>
+
+</body>
+</html>
